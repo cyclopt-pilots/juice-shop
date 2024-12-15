@@ -16,7 +16,7 @@ interface displayCard {
 }
 
 module.exports.getPaymentMethods = function getPaymentMethods () {
-  return async (req: Request, res: Response, next: NextFunction) => {
+  return async (req: Request, res: Response) => {
     const displayableCards: displayCard[] = []
     const cards = await CardModel.findAll({ where: { UserId: req.body.UserId } })
     cards.forEach(card => {
